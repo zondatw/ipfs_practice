@@ -7,10 +7,7 @@ PROJECT_PATH := $(CURRENT_PATH)/..
 IPFS_STAGING_PATH := $(PROJECT_PATH)/stage
 IPFS_DATA_PATH := $(PROJECT_PATH)/data
 
-all: build run
-
-build:
-	$(DOCKER_CMD) build -t $(IMG_NAME) .
+all: run
 
 run:
 	$(DOCKER_CMD) run --name $(CONTAINER_NAME) -v $(IPFS_STAGING_PATH):/export -v $(IPFS_DATA_PATH):/data/ipfs -p 4001:4001 -p 4001:4001/udp -p 127.0.0.1:8080:8080 -p 127.0.0.1:5001:5001 $(IMG_NAME)
