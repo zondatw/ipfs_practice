@@ -43,6 +43,48 @@ or click link:
 * https://ipfs.io/ipfs/QmZnmqt5P3WVwL1odjpWsucFf3QUt7in3rxdPpHUhhg3um?filename=QmZnmqt5P3WVwL1odjpWsucFf3QUt7in3rxdPpHUhhg3um
 * https://ipfs.io/ipfs/QmZnmqt5P3WVwL1odjpWsucFf3QUt7in3rxdPpHUhhg3um
 
+### Upload directory
+
+```shell
+# go to stage floder
+$ cd stage
+$ mkdir dir_test
+$ cd dir_test/
+$ echo zonda dir test 1 > test_file1.txt
+$ echo zonda dir test 2 > test_file2.txt
+$ tree
+.
+├── test_file1.txt
+└── test_file2.txt
+
+0 directories, 2 files
+```
+
+```shell
+# in docker floder, attach in container
+$ make attach
+/ # ipfs add -r /export/dir_test
+added QmPfNVo48w9cgUfhE4HNHirgtbkn2Vk3AKbiHYRbKNPgm2 dir_test/test_file1.txt
+added QmV27oBnCJCSTab1rgJ1bpDMnKdcpU2jWvvPxp3hf6UWvG dir_test/test_file2.txt
+added QmPYqHva8cymGprRjc7Es8KPccy3VbHaitFzKYBJ7betDZ dir_test
+ 34 B / 34 B [====================================================================] 100.00%
+ ```
+
+
+### Get directory
+
+```shell
+# in docker floder, attach in container
+$ make attach
+/ # ipfs ls QmPYqHva8cymGprRjc7Es8KPccy3VbHaitFzKYBJ7betDZ
+QmPfNVo48w9cgUfhE4HNHirgtbkn2Vk3AKbiHYRbKNPgm2 17 test_file1.txt
+QmV27oBnCJCSTab1rgJ1bpDMnKdcpU2jWvvPxp3hf6UWvG 17 test_file2.txt
+/ # ipfs cat QmPYqHva8cymGprRjc7Es8KPccy3VbHaitFzKYBJ7betDZ/test_file1.txt
+zonda dir test 1
+/ # ipfs cat QmPYqHva8cymGprRjc7Es8KPccy3VbHaitFzKYBJ7betDZ/test_file2.txt
+zonda dir test 2
+```
+
 ### Get node id
 
 ```shell
