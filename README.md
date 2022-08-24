@@ -39,6 +39,9 @@ $ make attach
 zonda test
 ```
 
+or click link:
+https://ipfs.io/ipfs/QmZnmqt5P3WVwL1odjpWsucFf3QUt7in3rxdPpHUhhg3um?filename=QmZnmqt5P3WVwL1odjpWsucFf3QUt7in3rxdPpHUhhg3um
+
 ### Get node id
 
 ```shell
